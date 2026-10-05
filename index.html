@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Método Demanda Infinita® | LinkedIn em reuniões qualificadas</title>
+<meta name="description" content="Em 90 dias, aplicamos o Método Demanda Infinita® na sua empresa B2B: reuniões todos os meses no LinkedIn, sem tráfego pago e sem DM fria.">
+<meta property="og:title" content="Transforme seu LinkedIn em uma máquina de reuniões qualificadas">
+<meta property="og:description" content="Método Demanda Infinita®: 12 encontros em 90 dias, com aplicação prática e acompanhamento.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="foto-hero.png">
+<link rel="icon" href="logo-demanda-infinita.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#008E43; --green-light:#12B85E; --green-dark:#006B32;
+  --bg:#F8F7F4; --card:#ECEAE5; --card-2:#F2F0EB; --text:#111111; --gray:#6B6B6B; --line:#D8D5CE;
+  --ink:#0F1A14; --ink-2:#17261D; --white:#fff;
+  --r:16px; --max:1180px;
+  --f-title:'Plus Jakarta Sans',system-ui,sans-serif; --f-body:'Inter',system-ui,sans-serif; --f-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--f-body);background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.kicker{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:18px;display:block}
+h1,h2,h3{font-family:var(--f-title);letter-spacing:-.02em;line-height:1.08}
+h2{font-size:clamp(28px,3.4vw,40px);font-weight:800}
+.sub{color:var(--gray);font-size:16px;max-width:460px;margin-top:16px}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-family:var(--f-title);font-weight:700;font-size:15px;padding:15px 26px;border-radius:10px;transition:.2s;box-shadow:0 8px 20px -10px rgba(0,142,67,.7)}
+.btn:hover{background:var(--green-dark);transform:translateY(-1px)}
+.btn-sm{padding:10px 18px;font-size:13px;border-radius:8px}
+.link-play{display:inline-flex;align-items:center;gap:12px;font-size:13px;color:inherit;line-height:1.3}
+.play{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--green);display:grid;place-items:center;border:1px solid var(--line);flex:none}
+.play svg{width:14px;height:14px;margin-left:2px}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.25s}
+header .wrap{display:flex;align-items:center;height:68px}
+header.solid{background:rgba(248,247,244,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-title);font-weight:700;font-size:13px;line-height:1.1;color:var(--text)}
+header.solid .brand{color:var(--text)}
+.brand img{width:40px;height:40px}
+nav{display:flex;gap:30px;font-size:13px;color:var(--gray);margin-left:56px;margin-right:auto}
+header.solid nav{color:var(--gray)}
+nav a:hover{color:var(--green-light)}
+
+/* hero */
+.hero{background:linear-gradient(90deg,#F8F7F4 0,#EFEDE7 100%);color:var(--text);position:relative;overflow:hidden;padding:140px 0 80px;min-height:640px;display:flex;align-items:center}
+.hero .wrap{width:100%}
+.hero .hero-text{max-width:540px;position:relative;z-index:2}
+.hero .kicker{color:var(--gray)}
+.hero h1{font-size:clamp(36px,4.6vw,58px);font-weight:800;color:var(--text)}
+.hero-actions{display:flex;align-items:center;gap:26px;margin-top:30px;flex-wrap:wrap}
+.proof{display:flex;align-items:center;gap:12px;margin-top:28px;font-size:12px;color:var(--gray)}
+.avatars{display:flex}
+.avatars span{width:34px;height:34px;border-radius:50%;border:2px solid var(--bg);margin-left:-9px;display:grid;place-items:center;font-size:11px;font-weight:700;font-family:var(--f-title);color:#fff}
+.avatars span:first-child{margin-left:0}
+.avatars span:nth-child(1){background:#2f7d57}.avatars span:nth-child(2){background:#8a6f4d}.avatars span:nth-child(3){background:#4d6b8a}.avatars span:nth-child(4){background:#7a4d6b}
+/* foto sangrando até a borda direita, igual ao layout */
+.hero-visual{position:absolute;top:0;right:0;bottom:0;z-index:1}
+.hero-photo{display:block;height:100%;width:auto;max-width:60vw;object-fit:cover;object-position:right center;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 5%);mask-image:linear-gradient(to right,transparent 0,#000 5%)}
+
+/* seções */
+section{padding:84px 0}
+.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+.grid{display:grid;gap:14px}
+.grid>*,.wrap>*,.split>*{min-width:0}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.tile{background:var(--card-2);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.tile svg.i{width:26px;height:26px;stroke:var(--text);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.tile p{font-family:var(--f-title);font-weight:700;font-size:15px;line-height:1.3}
+.tile em{font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--gray);display:block;margin-bottom:4px}
+.alt{background:var(--card);}
+.alt .tile{background:var(--bg)}
+.solution .grid{grid-template-columns:repeat(12,1fr)}
+.solution .tile{grid-column:span 4}
+.solution .tile:nth-child(n+4){grid-column:span 3}
+.solution .btn{margin-top:26px}
+
+/* recebe */
+.receive{background:var(--bg)}
+.receive-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.receive .btn{margin-top:28px}
+.mock{position:relative;min-height:380px}
+.laptop{position:absolute;right:0;top:0;width:78%;background:#1b1f1d;border-radius:12px;padding:8px;box-shadow:0 30px 60px -25px rgba(0,0,0,.5)}
+.laptop .screen{background:#f4f4f2;border-radius:6px;height:230px;display:grid;grid-template-columns:70px 1fr;overflow:hidden}
+.laptop .side{background:#e8e8e4;padding:10px 8px;display:flex;flex-direction:column;gap:7px}
+.laptop .side i{height:7px;background:#c6c6c0;border-radius:4px;display:block}
+.laptop .main{padding:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:start}
+.laptop .main i{height:54px;background:#fff;border:1px solid #e0e0da;border-radius:6px;display:block}
+.laptop .main i:nth-child(n+4){height:70px}
+.dark-card{position:absolute;left:0;bottom:0;width:56%;background:var(--ink);color:#fff;border-radius:16px;padding:24px;box-shadow:0 30px 60px -25px rgba(0,0,0,.6)}
+.dark-card h3{font-size:19px;font-weight:700;margin-bottom:14px}
+.deliv{position:absolute;right:0;bottom:-20px;width:44%;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 20px 40px -20px rgba(0,0,0,.3)}
+.deliv h4{font-family:var(--f-title);font-size:14px;margin-bottom:10px}
+.ck{list-style:none;display:grid;gap:9px}
+.ck li{display:flex;gap:9px;align-items:flex-start;font-size:13px}
+.ck li::before{content:"";flex:none;width:16px;height:16px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-4.8' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100%;margin-top:1px}
+.dark-card .ck li::before{background-color:transparent;border:1.5px solid var(--green-light)}
+.deliv .ck li{font-size:11.5px;gap:7px}
+.deliv .ck li::before{width:13px;height:13px}
+
+/* logos */
+.logos{padding:56px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.logos-row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:6px}
+.logo-t{font-family:var(--f-title);font-size:28px;font-weight:800;color:#222;letter-spacing:-.03em;opacity:.85}
+.logo-t.stone{text-transform:lowercase;font-size:36px}
+.logo-t.priner{font-size:18px;display:flex;align-items:center;gap:8px;line-height:1}
+.logo-t.priner i{width:32px;height:32px;background:#111;color:#fff;font-style:normal;display:grid;place-items:center;font-size:20px;border-radius:3px}
+.logo-t.adapta{font-weight:500;letter-spacing:.08em;font-size:26px}
+.logo-t.dr{letter-spacing:0}
+
+/* cases */
+.cases-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:26px;gap:20px}
+.cases-head a{font-size:13px;text-decoration:underline;text-decoration-color:var(--green);text-underline-offset:4px}
+.carousel-wrap{position:relative}
+.carousel{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 28px)/3);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.case{scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;grid-template-columns:96px 1fr;gap:16px;align-content:start}
+.case .ph{width:96px;height:112px;border-radius:10px;background:linear-gradient(160deg,#cfd8d2,#9fb2a6);display:grid;place-items:center;font-family:var(--f-title);font-weight:800;font-size:26px;color:#fff}
+.case h4{font-family:var(--f-title);font-size:14px;font-weight:700}
+.case .big{font-family:var(--f-title);font-weight:800;font-size:28px;line-height:1.05;margin-top:6px;letter-spacing:-.02em}
+.case .big small{font-size:14px;font-weight:500;color:var(--gray)}
+.case .desc{font-size:12px;color:var(--gray);margin-top:2px}
+.case .chart{grid-column:1/-1;display:flex;justify-content:space-between;align-items:end;margin-top:6px}
+.case .chart span{font-size:11px;color:var(--gray);line-height:1.2}
+.case .chart b{display:block;font-family:var(--f-title);font-size:15px;color:var(--text)}
+.case .chart svg{width:55%;height:44px}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 14px -6px rgba(0,0,0,.25);z-index:2}
+.arrow.l{left:-18px}.arrow.r{right:-18px}
+.arrow:hover{border-color:var(--green)}
+
+/* para quem */
+.niches{grid-template-columns:repeat(3,1fr)}
+.niches .tile{min-height:78px;flex-direction:row;align-items:center;justify-content:flex-start;gap:14px;padding:18px 20px}
+.niches .tile p{font-size:14px;font-weight:600;font-family:var(--f-body)}
+
+/* faq */
+.faq-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:26px}
+.faq-head a{font-size:13px;text-decoration:underline;text-decoration-color:var(--green);text-underline-offset:4px}
+details{background:var(--card-2);border:1px solid var(--line);border-radius:10px;margin-bottom:8px}
+summary{list-style:none;cursor:pointer;padding:16px 22px;font-size:14.5px;font-weight:500;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:20px;color:var(--gray);font-weight:400;transition:.2s}
+details[open] summary::after{content:"–"}
+details[open]{background:#fff}
+details .ans{padding:0 22px 20px;color:var(--gray);font-size:14.5px;max-width:760px}
+
+/* cta final */
+.final{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:90px 0;min-height:480px;display:flex;align-items:center}
+.final .wrap{width:100%}
+.final .final-text{max-width:520px;position:relative;z-index:2}
+.final h2{font-size:clamp(32px,4.4vw,48px);color:#fff}
+.final p.lead{color:rgba(255,255,255,.75);margin:18px 0 30px;max-width:420px}
+.final .proof{margin-top:26px;color:rgba(255,255,255,.7)}
+.final .avatars span{border-color:var(--ink)}
+.final .hero-photo{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 6%);mask-image:linear-gradient(to right,transparent 0,#000 6%)}
+footer{background:var(--ink);color:rgba(255,255,255,.45);font-size:12px;padding:0 0 34px}
+footer .wrap{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* whatsapp flutuante (mobile) */
+.fab{display:none}
+
+/* responsivo */
+@media(max-width:960px){
+  nav{display:none}
+  header .btn{margin-left:auto}
+  .split,.receive-grid{grid-template-columns:1fr}
+  .hero,.final{display:block;min-height:0}
+  .hero{padding:110px 0 0}
+  .final{padding:60px 0 0}
+  .hero-visual{position:static;margin:30px -20px 0}
+  .hero-photo,.final .hero-photo{width:100%;max-width:none;height:auto;-webkit-mask-image:none;mask-image:none}
+  .solution .grid{grid-template-columns:repeat(2,1fr)}
+  .solution .tile,.solution .tile:nth-child(n+4){grid-column:auto}
+  .g3{grid-template-columns:1fr}
+  .niches{grid-template-columns:repeat(2,1fr)}
+  .carousel{grid-auto-columns:82%}
+  .arrow{display:none}
+  .mock{min-height:0;display:grid;gap:14px}
+  .laptop,.dark-card,.deliv{position:static;width:100%}
+  .laptop .screen{height:170px}
+  section{padding:60px 0}
+}
+@media(max-width:560px){
+  .brand span{font-size:12px}
+  .cases-head,.faq-head{flex-direction:column;align-items:start}
+  .niches{grid-template-columns:1fr 1fr}
+  .logo-t{font-size:22px}.logo-t.stone{font-size:28px}
+  .btn{width:100%;justify-content:center}
+  header .btn{width:auto}
+  .fab{display:flex;position:fixed;left:16px;right:16px;bottom:14px;z-index:60;justify-content:center}
+  .fab .btn{width:100%;box-shadow:0 12px 30px -8px rgba(0,0,0,.45)}
+  footer{padding-bottom:90px}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <a href="#top" class="brand"><img src="logo-demanda-infinita.png" alt="Demanda Infinita"><span>Demanda<br>Infinita®</span></a>
+    <nav>
+      <a href="#metodo">Método</a><a href="#cases">Cases</a><a href="#para-quem">Para quem é</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-sm cta" href="#">Agendar conversa <span>→</span></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="kicker">Método Demanda Infinita®</span>
+      <h1>Transforme seu LinkedIn em uma máquina de reuniões qualificadas.</h1>
+      <p class="sub">Ajudamos empresas B2B a gerarem reuniões todos os meses no LinkedIn, sem tráfego pago e sem DM fria.</p>
+      <div class="hero-actions">
+        <a class="btn cta" href="#">Agendar conversa <span>→</span></a>
+        <a class="link-play" href="https://www.youtube.com/watch?v=dQiAdW0Dguc" target="_blank" rel="noopener">
+          <span class="play"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M2 1l11 6-11 6z"/></svg></span>
+          <span>Assistir ao vídeo do método<br><small style="opacity:.65">(5 min)</small></span>
+        </a>
+      </div>
+      <div class="proof">
+        <div class="avatars"><span>AB</span><span>CD</span><span>EF</span><span>GH</span></div>
+        <span>+50 fundadores já aplicam o método</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="hero-photo" src="foto-hero.png" alt="Igor Miguel, fundador do Demanda Infinita®, CMO da Nexus Mind. 1.612 leads qualificados em 43 dias, 60% ICP">
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section id="problema">
+  <div class="wrap split">
+    <div>
+      <span class="kicker">O problema</span>
+      <h2>Você tem autoridade e entrega, mas ainda depende de indicação para crescer.</h2>
+    </div>
+    <div class="grid g3">
+      <div class="tile"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9" r="2.4"/><path d="M17 14.2c2.3 0 4 1.6 4 4"/></svg><p>Seu conteúdo não gera reunião.</p></div>
+      <div class="tile"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><p>Você perde oportunidades para a concorrência.</p></div>
+      <div class="tile"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 15l3-3 3 2 4-5"/></svg><p>Seu comercial é você e não consegue escala.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÃO -->
+<section id="metodo" class="alt solution">
+  <div class="wrap split">
+    <div>
+      <span class="kicker">A solução</span>
+      <h2>Um processo completo para gerar reuniões todos os meses.</h2>
+      <p class="sub">Em 90 dias, aplicamos o Método Demanda Infinita® na sua empresa, com 7 pilares que vão do posicionamento à conversão de reuniões.</p>
+      <a class="btn cta" href="#">Agendar conversa <span>→</span></a>
+    </div>
+    <div class="grid">
+      <div class="tile"><div><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 8l9 6 9-6"/></svg></div><div><em>01</em><p>Posicionamento Magnético</p></div></div>
+      <div class="tile"><div><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></div><div><em>02</em><p>ICP + Oferta</p></div></div>
+      <div class="tile"><div><svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 15l3-3 2 2 3-4"/></svg></div><div><em>03</em><p>Claude Skills + Máquina de Conteúdo</p></div></div>
+      <div class="tile"><div><svg class="i" viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6"/></svg></div><div><em>04</em><p>Funil de Vendas Demanda Infinita</p></div></div>
+      <div class="tile"><div><svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12h6M12 9v6"/></svg></div><div><em>05</em><p>Automação e Integração</p></div></div>
+      <div class="tile"><div><svg class="i" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div><div><em>06</em><p>Processo Comercial</p></div></div>
+      <div class="tile"><div><svg class="i" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><div><em>07</em><p>Lapidação e Análise</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE VOCÊ RECEBE -->
+<section class="receive">
+  <div class="wrap receive-grid">
+    <div>
+      <span class="kicker">O que você recebe</span>
+      <h2>Tudo que você precisa para gerar demanda de forma previsível.</h2>
+      <p class="sub">12 encontros em 90 dias, com aplicação prática, acompanhamento e todo o material do método.</p>
+      <a class="btn cta" href="#">Agendar conversa <span>→</span></a>
+    </div>
+    <div class="mock" aria-hidden="false">
+      <div class="laptop"><div class="screen"><div class="side"><i></i><i></i><i></i><i></i><i></i></div><div class="main"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+      <div class="dark-card">
+        <h3>12 encontros<br>em 90 dias</h3>
+        <ul class="ck"><li>Aulas ao vivo</li><li>Implementação prática</li><li>Acompanhamento e suporte</li><li>Materiais e templates</li><li>Plano de ação personalizado</li></ul>
+      </div>
+      <div class="deliv">
+        <h4>Entregáveis</h4>
+        <ul class="ck"><li>Diagnóstico completo</li><li>Posicionamento e otimização de perfil</li><li>Calendário editorial</li><li>Templates de lead magnets</li><li>Automações e integrações</li><li>Processo comercial</li><li>Relatórios e análise de resultados</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMPRESAS -->
+<section class="logos">
+  <div class="wrap">
+    <span class="kicker">Empresas que confiam</span>
+    <div class="logos-row">
+      <span class="logo-t stone">stone</span>
+      <span class="logo-t priner"><i>P</i><span>GRUPO<br><b>PRINER</b></span></span>
+      <span class="logo-t">Rocontec</span>
+      <span class="logo-t dr">DR.HO</span>
+      <span class="logo-t adapta">ADAPTA</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="cases" class="alt">
+  <div class="wrap">
+    <div class="cases-head">
+      <div><span class="kicker">Resultados reais</span><h2>De mais visibilidade<br>a mais reuniões.</h2></div>
+      <a href="#">Ver mais cases →</a>
+    </div>
+    <div class="carousel-wrap">
+      <button class="arrow l" aria-label="Anterior">‹</button>
+      <div class="carousel" id="car">
+        <article class="case">
+          <div class="ph">PS</div>
+          <div><h4>PC Sarmento</h4><div class="big">230.180</div><div class="desc">impressões em um único post</div></div>
+          <div class="chart"><span><b>230.180</b>Impressões</span>
+            <svg viewBox="0 0 120 44" fill="#008E43"><rect x="0" y="38" width="8" height="6"/><rect x="12" y="37" width="8" height="7"/><rect x="24" y="36" width="8" height="8"/><rect x="36" y="34" width="8" height="10"/><rect x="48" y="31" width="8" height="13"/><rect x="60" y="27" width="8" height="17"/><rect x="72" y="22" width="8" height="22"/><rect x="84" y="15" width="8" height="29"/><rect x="96" y="8" width="8" height="36"/><rect x="108" y="0" width="8" height="44"/></svg></div>
+        </article>
+        <article class="case">
+          <div class="ph">LN</div>
+          <div><h4>Leonardo Nicolau</h4><div class="big">33.580</div><div class="desc">impressões (+7.655%)</div></div>
+          <div class="chart"><span><b>33.580</b>Impressões</span>
+            <svg viewBox="0 0 120 44" fill="#008E43"><rect x="0" y="40" width="8" height="4"/><rect x="12" y="39" width="8" height="5"/><rect x="24" y="38" width="8" height="6"/><rect x="36" y="36" width="8" height="8"/><rect x="48" y="33" width="8" height="11"/><rect x="60" y="29" width="8" height="15"/><rect x="72" y="24" width="8" height="20"/><rect x="84" y="18" width="8" height="26"/><rect x="96" y="10" width="8" height="34"/><rect x="108" y="2" width="8" height="42"/></svg></div>
+        </article>
+        <article class="case">
+          <div class="ph">FM</div>
+          <div><h4>Fernando Mascarenhas</h4><div class="big"><small>de</small> 4 <small>para</small><br>2.863</div><div class="desc">impressões por post</div></div>
+          <div class="chart"><span><b>2.863</b>Impressões</span>
+            <svg viewBox="0 0 120 44" fill="#008E43"><rect x="0" y="40" width="8" height="4"/><rect x="12" y="40" width="8" height="4"/><rect x="24" y="39" width="8" height="5"/><rect x="36" y="38" width="8" height="6"/><rect x="48" y="35" width="8" height="9"/><rect x="60" y="31" width="8" height="13"/><rect x="72" y="26" width="8" height="18"/><rect x="84" y="19" width="8" height="25"/><rect x="96" y="11" width="8" height="33"/><rect x="108" y="3" width="8" height="41"/></svg></div>
+        </article>
+      </div>
+      <button class="arrow r" aria-label="Próximo">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section id="para-quem">
+  <div class="wrap split">
+    <div>
+      <span class="kicker">Para quem é</span>
+      <h2>Feito para quem vende solução, não produto.</h2>
+      <p class="sub">Fundadores e donos-operadores de empresas B2B de ticket alto que querem previsibilidade na geração de oportunidades.</p>
+    </div>
+    <div class="grid niches">
+      <div class="tile"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v18M5 21h14M4 7h16M6 7l-3 7a3 3 0 006 0zM18 7l-3 7a3 3 0 006 0z"/></svg><p>Jurídico</p></div>
+      <div class="tile"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><p>Seguros</p></div>
+      <div class="tile"><svg class="i" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg><p>Imobiliário</p></div>
+      <div class="tile"><svg class="i" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4"/></svg><p>Construção</p></div>
+      <div class="tile"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12h8M12 8v8"/></svg><p>SaaS</p></div>
+      <div class="tile"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg><p>Consultorias</p></div>
+      <div class="tile"><svg class="i" viewBox="0 0 24 24"><path d="M12 21c-5-3-8-6-8-10a4 4 0 018-1 4 4 0 018 1c0 4-3 7-8 10z"/></svg><p>Clínicas</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="wrap">
+    <div class="faq-head"><div><span class="kicker">Perguntas frequentes</span><h2>Dúvidas mais comuns.</h2></div></div>
+    <details><summary>Preciso ter um grande número de seguidores?</summary><div class="ans">[RESPOSTA PENDENTE]</div></details>
+    <details><summary>Funciona para o meu nicho?</summary><div class="ans">[RESPOSTA PENDENTE]</div></details>
+    <details><summary>Em quanto tempo começo a ver resultado?</summary><div class="ans">[RESPOSTA PENDENTE]</div></details>
+    <details><summary>Preciso aparecer nos vídeos?</summary><div class="ans">[RESPOSTA PENDENTE]</div></details>
+    <details><summary>Qual a diferença da consultoria para o serviço (done-for-you)?</summary><div class="ans">[RESPOSTA PENDENTE]</div></details>
+    <details><summary>Como são os encontros?</summary><div class="ans">[RESPOSTA PENDENTE]</div></details>
+    <details><summary>Se eu já tenho um time comercial, ainda faz sentido?</summary><div class="ans">[RESPOSTA PENDENTE]</div></details>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-text">
+      <h2>Vamos construir sua máquina de reuniões?</h2>
+      <p class="lead">Agende uma conversa e entenda como o Método Demanda Infinita® pode gerar oportunidades reais para o seu negócio.</p>
+      <a class="btn cta" href="#">Agendar conversa <span>→</span></a>
+      <div class="proof"><div class="avatars"><span>AB</span><span>CD</span><span>EF</span><span>GH</span></div><span>+50 fundadores já aplicam o método</span></div>
+    </div>
+    <div class="hero-visual">
+      <img class="hero-photo" src="foto-cta.png" alt="Igor Miguel, fundador do Demanda Infinita®">
+    </div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© 2026 Demanda Infinita®. Todos os direitos reservados.</span><span>LinkedIn · Sem tráfego pago · Sem DM fria · Mais reuniões</span></div></footer>
+
+<div class="fab"><a class="btn cta" href="#">Agendar conversa pelo WhatsApp →</a></div>
+
+<script>
+// Link do WhatsApp: trocar aqui e todos os botões atualizam
+var WHATSAPP_URL = "https://wa.me/55SEUNUMERO?text=" + encodeURIComponent("Olá, Igor! Vi a página do Método Demanda Infinita e quero agendar uma conversa.");
+document.querySelectorAll('a.cta').forEach(function(a){ a.href = WHATSAPP_URL; a.target = "_blank"; a.rel = "noopener"; });
+
+// header sólido ao rolar
+var h = document.querySelector('header');
+function onScroll(){ h.classList.toggle('solid', window.scrollY > 40); }
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+// carrossel
+var car = document.getElementById('car');
+function step(d){ car.scrollBy({left: d * (car.querySelector('.case').offsetWidth + 14), behavior:'smooth'}); }
+document.querySelector('.arrow.l').onclick = function(){ step(-1); };
+document.querySelector('.arrow.r').onclick = function(){ step(1); };
+</script>
+</body>
+</html>
